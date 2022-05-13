@@ -1,0 +1,2 @@
+insert into spending (amountSpending, descriptionSpending, labelSpending) values (150, 'Wydatki w lidlu', 'SKLEP');
+insert into spending (amountSpending, descriptionSpending, labelSpending) values (250, 'Stacja Orlen', 'PALIWO');
