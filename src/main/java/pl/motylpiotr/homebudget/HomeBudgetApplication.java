@@ -12,7 +12,7 @@ public class HomeBudgetApplication {
 		SpringApplication.run(HomeBudgetApplication.class, args);
 
 		log.info("####################################");
-		log.info("HomeBudget - Application start");
+		log.info("HomeBudget - Application start ");
 		log.info("####################################");
 	}
 }
