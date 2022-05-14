@@ -17,5 +17,6 @@ public class SpendingDTO {
     private Double amountSpending;
 
     private String descriptionSpending;
+
     private String labelSpending;
 }

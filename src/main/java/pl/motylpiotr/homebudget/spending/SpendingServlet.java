@@ -35,6 +35,24 @@ public class SpendingServlet {
                         spendingDTO.getLabelSpending()
                 ));
     }
+    @PutMapping("/spending/{idSpending}")
+    public SpendingDTO updateSpending(@PathVariable("idSpending") Integer idSpending,
+                                      @RequestBody SpendingDTO spendingDTO) {
+        return spendingService
+                .updateSpending(idSpending, spendingDTO.getAmountSpending(), spendingDTO.getDescriptionSpending(), spendingDTO.getLabelSpending())
+                .map(this::spendingAsDTO)
+                .orElseThrow();
+    }
+
+    @DeleteMapping("/spending/{idSpending}")
+    public void deleteSpending(@PathVariable("idSpending") Integer idSPending) {
+        spendingService.deleteSpending(idSPending);
+    }
+
+
+
+
+
     public SpendingDTO spendingAsDTO(@NotNull SpendingModel spendingModel) {
         return SpendingDTO.builder()
                 .idSpending(spendingModel.getIdSpending())
