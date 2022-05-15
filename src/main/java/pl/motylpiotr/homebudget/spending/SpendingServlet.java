@@ -16,7 +16,7 @@ public class SpendingServlet {
     private SpendingService spendingService;
 
     @GetMapping("/spending")
-    List<SpendingDTO> getSpendings(@RequestParam("sortBy")String sortBy) {
+    List<SpendingDTO> getSpendings(@RequestParam(value = "sortBy", required = false)String sortBy) {
         log.info("###################################");
         log.info("SpendingServlet - getSpendings - @GetMapping(\"/spending\")");
         log.info("###################################");
@@ -26,7 +26,7 @@ public class SpendingServlet {
     @PostMapping("/spending")
     public SpendingDTO addSpending(@RequestBody SpendingDTO spendingDTO) {
         log.info("###################################");
-        log.info("SpendingServlet - addSpending - @PostMapping(\"/spending\")");
+        log.info("SpendingSERVLET - addSpending - @PostMapping(\"/spending\")");
         log.info("###################################");
         return spendingAsDTO(
                 spendingService.addSpending(
@@ -48,10 +48,6 @@ public class SpendingServlet {
     public void deleteSpending(@PathVariable("idSpending") Integer idSPending) {
         spendingService.deleteSpending(idSPending);
     }
-
-
-
-
 
     public SpendingDTO spendingAsDTO(@NotNull SpendingModel spendingModel) {
         return SpendingDTO.builder()

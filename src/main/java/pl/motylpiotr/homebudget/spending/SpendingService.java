@@ -28,6 +28,10 @@ public class SpendingService {
     }
 
     public SpendingModel addSpending(Double amountSpending, String descriptionSpending, String labelSpending) {
+        log.info("###################################");
+        log.info("SpendingSERVICE - addSpending");
+        log.info("###################################");
+
         SpendingModel spendingModel = SpendingModel.builder()
                 .amountSpending(amountSpending)
                 .descriptionSpending(descriptionSpending)

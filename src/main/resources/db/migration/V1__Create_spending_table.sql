@@ -1,6 +1,6 @@
 create table spending (
-    idSpending int unsigned primary key auto_increment,
-    amountSpending double not null,
-    descriptionSpending varchar(200),
-    labelSpending varchar(20)
+    id_spending int unsigned primary key auto_increment,
+    amount_spending double not null,
+    description_spending varchar(200),
+    label_spending varchar(20)
 );
