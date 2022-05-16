@@ -3,6 +3,7 @@ package pl.motylpiotr.homebudget.spending;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -20,7 +21,7 @@ public class SpendingModel {
     private Integer idSpending;
 
     @Column(name = "amount_spending")
-    private Double amountSpending;
+    private BigDecimal amountSpending;
 
     @Column(name = "description_spending")
     private String descriptionSpending;

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
 @RestController
 public class SpendingServlet {
 
@@ -17,17 +16,11 @@ public class SpendingServlet {
 
     @GetMapping("/spending")
     List<SpendingDTO> getSpendings(@RequestParam(value = "sortBy", required = false)String sortBy) {
-        log.info("###################################");
-        log.info("SpendingServlet - getSpendings - @GetMapping(\"/spending\")");
-        log.info("###################################");
         return spendingService.getSpendings(sortBy).stream().map(this::spendingAsDTO).collect(Collectors.toList());
     }
 
     @PostMapping("/spending")
     public SpendingDTO addSpending(@RequestBody SpendingDTO spendingDTO) {
-        log.info("###################################");
-        log.info("SpendingSERVLET - addSpending - @PostMapping(\"/spending\")");
-        log.info("###################################");
         return spendingAsDTO(
                 spendingService.addSpending(
                         spendingDTO.getAmountSpending(),

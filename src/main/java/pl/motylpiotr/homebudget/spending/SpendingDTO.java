@@ -2,6 +2,7 @@ package pl.motylpiotr.homebudget.spending;
 
 import lombok.*;
 import javax.validation.constraints.NotEmpty;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ public class SpendingDTO {
     private Integer idSpending;
 
     @NotEmpty(message = "Spending must be not empty")
-    private Double amountSpending;
+    private BigDecimal amountSpending;
 
     private String descriptionSpending;
 
