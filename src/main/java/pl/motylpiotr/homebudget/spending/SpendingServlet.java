@@ -16,7 +16,10 @@ public class SpendingServlet {
 
     @GetMapping("/spending")
     List<SpendingDTO> getSpendings(@RequestParam(value = "sortBy", required = false)String sortBy) {
-        return spendingService.getSpendings(sortBy).stream().map(this::spendingAsDTO).collect(Collectors.toList());
+        return spendingService.getSpendings(sortBy)
+                .stream()
+                .map(this::spendingAsDTO)
+                .collect(Collectors.toList());
     }
 
     @PostMapping("/spending")
@@ -32,7 +35,10 @@ public class SpendingServlet {
     public SpendingDTO updateSpending(@PathVariable("idSpending") Integer idSpending,
                                       @RequestBody SpendingDTO spendingDTO) {
         return spendingService
-                .updateSpending(idSpending, spendingDTO.getAmountSpending(), spendingDTO.getDescriptionSpending(), spendingDTO.getLabelSpending())
+                .updateSpending(idSpending,
+                        spendingDTO.getAmountSpending(),
+                        spendingDTO.getDescriptionSpending(),
+                        spendingDTO.getLabelSpending())
                 .map(this::spendingAsDTO)
                 .orElseThrow();
     }
